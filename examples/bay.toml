@@ -1,0 +1,33 @@
+[bays]
+# The key is the "name" of the drive bay and the value is the path of a symlink
+# to a device node that proved a table identifier of that drive bay. Unless an
+# absolute path starting with "/" is given, the paths are relative to
+# "/dev/disk/by-path/".
+left-1 = "pci-0000:00:1f.2-ata-6"
+left-2 = "pci-0000:00:1f.2-ata-5"
+left-3 = "pci-0000:00:1f.2-ata-4"
+left-4 = "pci-0000:00:1f.2-ata-3"
+
+right-1 = "pci-0000:01:00.0-ata-1"
+right-2 = "pci-0000:01:00.0-ata-2"
+right-3 = "pci-0000:01:00.0-ata-3"
+right-4 = "pci-0000:01:00.0-ata-4"
+
+esata-1 = "pci-0000:00:1f.2-ata-1"
+esata-2 = "pci-0000:00:1f.2-ata-2"
+
+usb-front = "pci-0000:00:1a.7-usb-0:1:1.0-scsi-0:0:0:0"
+
+[bay."*"]
+# A list of patterns that are used to get a stable names of a specific device. A
+# stable name is a path that doesn't depend on the drive bay the device is on or
+# order that the devices have been attached or discovered. Each pattern is
+# matched agains files in the file system and the first path that is either a
+# symlink to the devices node or the node itself is picked. Unless an absolute
+# pattern starting with a "/" is given, patterns are considered to be relative
+# to "/dev/disk/by-id/"
+stable_patterns = ["ata-*", "wwn-0x*"]
+
+# Different patterns can be configured for different sets of drive bays.
+[bay."usb-*"]
+stable_patterns = ["usb-*"]

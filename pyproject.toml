@@ -1,9 +1,10 @@
 [project]
 name = "bay"
 version = "0"
+dependencies = ["toml", "dacite", "platformdirs"]
 
 [project.optional-dependencies]
-dev = ["pytest", "mypy"]
+dev = ["pytest", "mypy", "types-toml"]
 
 [project.scripts]
 bay = "bay:entry_point"
