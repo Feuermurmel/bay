@@ -102,6 +102,7 @@ def main(
 
         device_node = get_device_node(path)
 
+        # If-cascade of doom starting here:
         if table:
             if device_node is None:
                 stable_names_str = '(no device present)'
